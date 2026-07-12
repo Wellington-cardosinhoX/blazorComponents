@@ -1,0 +1,27 @@
+﻿<h3>Card do filho</h3>
+
+<div class="card">
+    <div class="card-header">
+        <h3>Título do Card</h3>
+    </div>
+    <div class="card-body">
+        @texto
+    </div>
+    <div class="card-footer">
+        <LayoutInternoNeto OnText="ReceberTextoFilho" @bind-Apagar:get="vazio" @bind-Apagar:set="Apagar"  />
+    </div>
+</div>
+
+
+@code {
+    private string texto = "Esperando Informação do filho...";
+
+    private string vazio = string.Empty;
+
+    private void Apagar(string vazio) => texto = vazio;
+
+    private void ReceberTextoFilho(string texto)
+    {
+        this.texto = texto;
+    }
+}

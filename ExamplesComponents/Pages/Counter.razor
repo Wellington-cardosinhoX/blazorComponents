@@ -1,0 +1,22 @@
+﻿<h3>Incrementar</h3>
+
+<button class="btn btn-primary" @onclick="Incrementar">
+    Cliquei: @contador
+</button>
+
+
+@code {
+    private int contador = 0;
+
+    [Parameter]
+    public int Incrementado { get; set; }
+
+    [Parameter]
+    public EventCallback<int> IncrementadoChanged { get; set; }
+
+    private async Task Incrementar()
+    {
+        contador++;
+        await IncrementadoChanged.InvokeAsync(contador);
+    }
+}

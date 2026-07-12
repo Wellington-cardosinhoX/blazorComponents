@@ -1,0 +1,44 @@
+﻿@page "/"
+@using ExamplesComponents.Pages.Cascading
+@using ExamplesComponents.Pages.RenderFragment
+
+@* EventCallBack *@
+<Counter @bind-Incrementado:get="currentValue" 
+         @bind-Incrementado:set="IncrementValue" 
+/>
+
+<p>Quantidade de cliques: @currentValue</p>
+
+<hr />
+
+@* CascadingValue *@
+<CascadingValue Value="temaAtual">
+        <LayoutInternoFilho />
+</CascadingValue>
+
+<hr />
+
+@* RenderFragment *@
+<Painel>
+    <Cabecalho>
+        <h3>Este é o cabeçalho</h3>
+    </Cabecalho>
+    <ChildContent>
+        <span>Este é o corpo do painel</span>
+    </ChildContent>
+    <Footer>
+        Este é o footer
+    </Footer>
+</Painel>
+
+
+
+@code {
+    private int currentValue = 0;
+    private string temaAtual = "escuro";
+
+    private void IncrementValue(int valor)
+    {
+        currentValue = valor;
+    }
+}

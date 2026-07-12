@@ -1,0 +1,32 @@
+﻿<button class="btn btn-primary" @onclick="MudarTexto">
+    <span>Mudar Texto</span>
+</button>
+
+<button class="btn btn-warning" @onclick="ApagarInformacao">
+    <span>Apagar</span>
+</button>
+
+
+@code {
+    [CascadingParameter]
+    public string? mensagemAvo { get; set; } 
+
+    [Parameter]
+    public EventCallback<string> OnText { get; set; }
+
+    [Parameter]
+    public string Apagar { get; set; }
+
+    [Parameter]
+    public EventCallback<string> ApagarChanged { get; set; }
+
+    private async Task MudarTexto()
+    {
+        await OnText.InvokeAsync(mensagemAvo);
+    }
+
+    private async Task ApagarInformacao()
+    {
+        await ApagarChanged.InvokeAsync(string.Empty);
+    }
+}

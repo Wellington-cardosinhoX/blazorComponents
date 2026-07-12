@@ -1,0 +1,23 @@
+﻿<div class="painel">
+    <div class="painel-cabecalho">
+        @Cabecalho
+    </div>
+    <div class="painel-corpo">
+        @ChildContent
+    </div>
+    <div class="painel-footer">
+        @Footer
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public RenderFragment? Cabecalho { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public RenderFragment? Footer { get; set; }
+}
