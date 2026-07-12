@@ -12,10 +12,8 @@
 <hr />
 
 @* CascadingValue *@
-<CascadingValue Value="temaAtual" Name="Tema">
-    <CascadingValue Value="versao" Name="Versao" IsFixed="true">
+<CascadingValue Value="temaAtual">
         <LayoutInternoFilho />
-    </CascadingValue>
 </CascadingValue>
 
 <hr />
@@ -38,7 +36,6 @@
 @code {
     private int currentValue = 0;
     private string temaAtual = "escuro";
-    public string versao = "1.0v";
 
     private void IncrementValue(int valor)
     {
