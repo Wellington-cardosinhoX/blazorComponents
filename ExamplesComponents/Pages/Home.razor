@@ -36,6 +36,13 @@
 @* Attributes *@
 <MeuInput placeholder="Nome" disabled />
 
+
+<ItemTemplate>
+    <ItemTemplateComponent Context="nome">
+        <p>Olá, @nome</p>
+    </ItemTemplateComponent>
+</ItemTemplate>
+
 @code {
     private int currentValue = 0;
     private string temaAtual = "escuro";

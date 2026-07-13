@@ -1,0 +1,11 @@
+﻿@foreach (var item in Itens)
+{
+    @ItemTemplateComponent(item)
+}
+
+@code {
+    [Parameter]
+    public RenderFragment<string> ItemTemplateComponent { get; set; }
+
+    public List<string> Itens = new() { "Ana", "Wellington", "Cardoso" };
+}
