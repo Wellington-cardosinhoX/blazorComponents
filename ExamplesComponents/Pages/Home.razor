@@ -36,12 +36,27 @@
 @* Attributes *@
 <MeuInput placeholder="Nome" disabled />
 
+<hr style="margin-top: 20px;" />
 
-<ItemTemplate>
-    <ItemTemplateComponent Context="nome">
-        <p>Olá, @nome</p>
+@* Lisa generica - typeparam *@
+<MinhaLista Itens="produtos">
+    <ItemTemplateComponent Context="produto">
+        <div class="card-produto">
+            <h4>@produto.Nome</h4>
+            <p>Categoria: @produto.Categoria</p>
+            <p>Preço: @produto.Preco</p>
+            @if (produto.EmEstoque)
+            {
+                <span class="badge text-bg-success">Disponível</span>
+            }
+            else
+            {
+                <span class="badge text-bg-danger">Indisponível</span>
+            }
+        </div>
     </ItemTemplateComponent>
-</ItemTemplate>
+</MinhaLista>
+
 
 @code {
     private int currentValue = 0;
@@ -51,4 +66,12 @@
     {
         currentValue = valor;
     }
+
+
+    private List<Produto> produtos = new()
+    {
+        new Produto { Id = 1, Nome = "Notebook", Preco = 3500.00m, EmEstoque = true, Categoria = "Eletrônicos" },
+        new Produto { Id = 2, Nome = "Mouse", Preco = 89.90m, EmEstoque = false, Categoria = "Acessórios" },
+        new Produto { Id = 3, Nome = "Teclado Mecânico", Preco = 450.00m, EmEstoque = true, Categoria = "Acessórios" },
+    };
 }
