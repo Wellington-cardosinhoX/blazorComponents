@@ -1,6 +1,9 @@
-﻿<input class="form-control" @attributes="AttributesExtras" />
+﻿<input class="form-control @CssClass" @attributes="AttributesExtras" />
 
 @code {
     [Parameter(CaptureUnmatchedValues = true)]
     public Dictionary<string, object>? AttributesExtras { get; set; }
+
+    [Parameter]
+    public string? CssClass { get; set; }
 }

@@ -1,0 +1,19 @@
+﻿@typeparam TItem
+
+<div class="lista-container">
+    @foreach (var item in Itens)
+    {
+        <div class="lista-wrapper">
+            @ItemTemplateComponent(item)
+        </div>
+    }
+</div>
+
+
+@code {
+    [Parameter]
+    public List<TItem> Itens { get; set; } = new();
+
+    [Parameter]
+    public RenderFragment<TItem> ItemTemplateComponent { get; set; }
+}
