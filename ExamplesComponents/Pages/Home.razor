@@ -9,14 +9,14 @@
 
 <p>Quantidade de cliques: @currentValue</p>
 
-<hr />
+<hr style="margin-top: 20px;" />
 
 @* CascadingValue *@
 <CascadingValue Value="temaAtual">
         <LayoutInternoFilho />
 </CascadingValue>
 
-<hr />
+<hr style="margin-top: 20px;" />
 
 @* RenderFragment *@
 <Painel>
@@ -31,7 +31,10 @@
     </Footer>
 </Painel>
 
+<hr style="margin-top: 20px;" />
 
+@* Attributes *@
+<MeuInput placeholder="Nome" disabled />
 
 @code {
     private int currentValue = 0;
